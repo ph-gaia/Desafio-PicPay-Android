@@ -1,4 +1,16 @@
 package phenrique.picpay.desafiopicpay.mvp.contact;
 
-public class ContactMVP {
+public interface ContactMVP {
+
+    interface ViewImpl {
+
+    }
+
+    interface PresenterImpl {
+
+    }
+
+    interface ModelImpl {
+
+    }
 }
