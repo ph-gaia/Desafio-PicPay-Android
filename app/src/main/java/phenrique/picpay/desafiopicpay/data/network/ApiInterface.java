@@ -1,4 +1,12 @@
 package phenrique.picpay.desafiopicpay.data.network;
 
-public class ApiInterface {
+import phenrique.picpay.desafiopicpay.data.model.UserResults;
+import retrofit2.Call;
+import retrofit2.http.GET;
+
+public interface ApiInterface {
+
+    @GET("users")
+    Call<UserResults> searchUsers();
+
 }
