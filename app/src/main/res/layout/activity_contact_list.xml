@@ -33,19 +33,19 @@
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
-            android:id="@+id/coordinator_toolbar">
+            android:id="@+id/toolbar">
 
             <android.support.v7.widget.SearchView
-                android:background="@drawable/shape_search_disable"
                 android:id="@+id/contact_search"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                app:iconifiedByDefault="false"
-                app:searchIcon="@drawable/ic_search_24dp"
+                android:background="@drawable/shape_search_disable"
                 app:closeIcon="@drawable/ic_close_white"
-                app:queryHint="@string/search_hint"/>
+                app:iconifiedByDefault="false"
+                app:queryHint="@string/search_hint"
+                app:searchIcon="@drawable/ic_search_24dp" />
 
         </android.support.v7.widget.Toolbar>
 
