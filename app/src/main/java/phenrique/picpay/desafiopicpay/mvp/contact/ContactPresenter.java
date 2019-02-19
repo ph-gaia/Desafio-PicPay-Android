@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import phenrique.picpay.desafiopicpay.data.model.User;
 
@@ -50,7 +51,7 @@ public class ContactPresenter implements ContactMVP.PresenterImpl {
     }
 
     @Override
-    public void updateListRecycler(ArrayList<User> user) {
+    public void updateListRecycler(List<User> user) {
         users.clear();
         users.addAll(user);
         view.updateListRecycler();
