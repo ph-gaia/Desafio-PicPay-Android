@@ -93,7 +93,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        User user = usersList.get(position);
+        User user = usersListFiltered.get(position);
         holder.username.setText(user.getUsername());
         holder.name.setText(user.getName());
 
@@ -105,7 +105,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
 
     @Override
     public int getItemCount() {
-        return usersList.size();
+        return usersListFiltered.size();
     }
 
     public interface UserAdapterListener {
