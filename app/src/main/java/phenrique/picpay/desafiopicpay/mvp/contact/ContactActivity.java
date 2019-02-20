@@ -3,8 +3,10 @@ package phenrique.picpay.desafiopicpay.mvp.contact;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import phenrique.picpay.desafiopicpay.R;
@@ -41,6 +43,9 @@ public class ContactActivity extends AppCompatActivity implements ContactMVP.Vie
         contact_list = findViewById(R.id.contact_list);
         contact_list.setHasFixedSize(true);
 
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        contact_list.setLayoutManager(mLayoutManager);
+
         adapter = new ContactAdapter(presenter.getUsers(),this);
         contact_list.setAdapter(adapter);
 
@@ -49,6 +54,10 @@ public class ContactActivity extends AppCompatActivity implements ContactMVP.Vie
 
     private void searchListener() {
         contact_search = findViewById(R.id.contact_search);
+
+        EditText search_contact = contact_search.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+        search_contact.setTextColor(getResources().getColor(R.color.color_white));
+        search_contact.setHintTextColor(getResources().getColor(R.color.search_text));
 
         contact_search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
