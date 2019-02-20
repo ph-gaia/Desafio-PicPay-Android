@@ -1,12 +1,14 @@
 package phenrique.picpay.desafiopicpay.data.network;
 
-import phenrique.picpay.desafiopicpay.data.model.UserResults;
+import java.util.List;
+
+import phenrique.picpay.desafiopicpay.data.model.User;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface ApiInterface {
 
     @GET("users")
-    Call<UserResults> searchUsers();
+    Call<List<User>> searchUsers();
 
 }
