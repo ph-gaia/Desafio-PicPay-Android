@@ -18,7 +18,8 @@ import java.util.List;
 import phenrique.picpay.desafiopicpay.R;
 import phenrique.picpay.desafiopicpay.data.model.User;
 
-public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHolder> implements Filterable {
+public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHolder>
+        implements Filterable {
 
     private List<User> usersList;
     private List<User> usersListFiltered;
@@ -66,6 +67,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
             username = view.findViewById(R.id.item_contact_username);
             name = view.findViewById(R.id.item_contact_name);
             image = view.findViewById(R.id.item_contact_image);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onUserSelected(usersListFiltered.get(getAdapterPosition()));
+                }
+            });
         }
     }
 
