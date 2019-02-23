@@ -36,11 +36,6 @@ public class ContactPresenter implements ContactMVP.PresenterImpl {
     }
 
     @Override
-    public Context getContext() {
-        return (Context) view;
-    }
-
-    @Override
     public ArrayList<User> getUsers() {
         return users;
     }

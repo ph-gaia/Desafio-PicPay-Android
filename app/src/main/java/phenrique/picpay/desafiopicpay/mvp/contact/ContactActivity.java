@@ -1,5 +1,6 @@
 package phenrique.picpay.desafiopicpay.mvp.contact;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import phenrique.picpay.desafiopicpay.R;
 import phenrique.picpay.desafiopicpay.adapter.ContactAdapter;
 import phenrique.picpay.desafiopicpay.data.model.User;
+import phenrique.picpay.desafiopicpay.mvp.payment.PaymentActivity;
 
 public class ContactActivity extends AppCompatActivity implements ContactMVP.ViewImpl,
         ContactAdapter.UserAdapterListener {
@@ -88,6 +90,8 @@ public class ContactActivity extends AppCompatActivity implements ContactMVP.Vie
 
     @Override
     public void onUserSelected(User user) {
-        Toast.makeText(getApplicationContext(), "Selected: " + user.getName(), Toast.LENGTH_LONG).show();
+        Intent i = new Intent(this, PaymentActivity.class);
+        i.putExtra("user_data", user);
+        startActivity(i);
     }
 }
