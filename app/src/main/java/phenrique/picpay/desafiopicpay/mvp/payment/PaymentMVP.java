@@ -1,7 +1,6 @@
 package phenrique.picpay.desafiopicpay.mvp.payment;
 
 import android.content.Context;
-import android.widget.EditText;
 
 import phenrique.picpay.desafiopicpay.data.model.User;
 
