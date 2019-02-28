@@ -3,15 +3,20 @@ package phenrique.picpay.desafiopicpay.mvp.creditCard;
 import android.content.Context;
 import android.view.View;
 
-import phenrique.picpay.desafiopicpay.R;
+import phenrique.picpay.desafiopicpay.data.model.CreditCard;
 
 public class CreditCardPresenter implements CreditCardMVP.PresenterImpl {
 
+    private CreditCardMVP.ModelImpl model;
     private CreditCardMVP.ViewImpl view;
     private boolean validateCardNumber = false;
     private boolean validateCardName = false;
     private boolean validateCardExpiration = false;
     private boolean validateCardCvv = false;
+
+    public CreditCardPresenter() {
+        model = new CreditCardModel( this );
+    }
 
     @Override
     public void setView(CreditCardMVP.ViewImpl view) {
@@ -55,4 +60,16 @@ public class CreditCardPresenter implements CreditCardMVP.PresenterImpl {
         validateCardCvv = (value.length() != 3);
         showButton();
     }
+
+    @Override
+    public void saveCreditCard(String cardNumber, String holderName, String Expiration, String Cvv) {
+        CreditCard card = new CreditCard();
+        card.setCardNumber(cardNumber);
+        card.setCardholderName(holderName);
+        card.setCvv(Integer.parseInt(Cvv));
+        card.setExpiryDate(Expiration);
+
+        model.saveCreditCard(card);
+    }
+
 }
