@@ -2,6 +2,9 @@ package phenrique.picpay.desafiopicpay.mvp.creditCard;
 
 import android.content.Context;
 
+import phenrique.picpay.desafiopicpay.data.database.ManagerDatabase;
+import phenrique.picpay.desafiopicpay.data.model.CreditCard;
+
 public interface CreditCardMVP {
 
     interface ViewImpl {
@@ -17,9 +20,10 @@ public interface CreditCardMVP {
         public void validateCardName(String value);
         public void validateCardExpiration(String value);
         public void validateCardCvv(String value);
+        public void saveCreditCard(String cardNumber, String holderName, String Expiration, String Cvv);
     }
 
     interface ModelImpl {
-
+        public void saveCreditCard(CreditCard creditCard);
     }
 }
