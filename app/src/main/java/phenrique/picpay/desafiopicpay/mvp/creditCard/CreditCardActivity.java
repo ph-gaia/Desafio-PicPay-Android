@@ -5,12 +5,14 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import phenrique.picpay.desafiopicpay.R;
+import phenrique.picpay.desafiopicpay.utils.CreditCardTextWatcher;
 
 public class CreditCardActivity extends AppCompatActivity implements CreditCardMVP.ViewImpl {
 
@@ -46,6 +48,8 @@ public class CreditCardActivity extends AppCompatActivity implements CreditCardM
     }
 
     private void listenerFields() {
+        register_card_number.addTextChangedListener(new CreditCardTextWatcher(register_card_number));
+
         register_card_number.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -120,5 +124,21 @@ public class CreditCardActivity extends AppCompatActivity implements CreditCardM
     @Override
     public void showToast(String mensagem ) {
         Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
+    }
+
+    public void saveCreditCard(View view) {
+        presenter.saveCreditCard(register_card_number.getText().toString().trim(),
+                register_cardholder_name.getText().toString().trim(),
+                register_card_expiration.getText().toString(),
+                register_card_cvv.getText().toString());
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
