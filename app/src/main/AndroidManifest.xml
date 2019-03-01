@@ -24,6 +24,24 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".mvp.payment.PaymentActivity"
+            android:theme="@style/AppTheme"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:parentActivityName=".mvp.contact.ContactActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name=".mvp.priming.PrimingActivity"
+            android:theme="@style/AppTheme"
+            android:label=""
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.creditCard.CreditCardActivity"
+            android:theme="@style/AppTheme"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
 
     </application>
 
