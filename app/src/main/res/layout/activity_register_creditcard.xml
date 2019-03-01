@@ -139,6 +139,7 @@
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
             android:layout_marginBottom="12dp"
+            android:onClick="saveCreditCard"
             android:background="@drawable/shape_button"
             android:text="@string/register_button_save"
             android:textAlignment="center"
